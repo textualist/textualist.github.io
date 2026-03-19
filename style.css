@@ -222,20 +222,13 @@ a:hover {
   max-width: 32rem;
 }
 
-/* ── Divider ── */
-.header-rule {
-  border: none;
-  max-width: 6rem;
-  margin: 2.5rem auto 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent1),
-    var(--accent2),
-    transparent
-  );
-  opacity: 0.55;
+/* ── Dinkus ── */
+.dinkus {
+  margin: 2rem auto 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  opacity: 0.5;
 }
 
 /* ── Section ── */
@@ -256,14 +249,16 @@ a:hover {
   position: relative;
   background: var(--paper);
   border: 1px solid var(--paper-border);
-  border-radius: 4px;
-  padding: 1.1rem 1.25rem;
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  padding: 1.25rem 1.4rem;
   margin-bottom: 0.75rem;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .project-card:hover {
-  border-color: var(--accent1);
+  border-color: var(--paper-border);
+  border-left-color: var(--accent1);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transform: translateY(-1px);
 }
@@ -272,7 +267,7 @@ a:hover {
   position: absolute;
   inset: 0;
   z-index: 0;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .project-card-overlay:hover {
@@ -287,8 +282,8 @@ a:hover {
 }
 
 .project-name {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.95rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--ink);
 }
