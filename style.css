@@ -8,6 +8,7 @@
   --text: #312925;
   --muted: #746a63;
   --paper-border: rgba(116, 106, 99, 0.16);
+  --logo-txt: #2f3640;
 
   color-scheme: light dark;
 }
@@ -23,6 +24,7 @@
     --text: #d4cdc6;
     --muted: #8a807a;
     --paper-border: rgba(200, 190, 180, 0.12);
+    --logo-txt: #b0bac6;
   }
 }
 
@@ -107,12 +109,11 @@ a:hover {
 
 .logo-black {
   position: relative;
-  color: var(--ink);
+  color: var(--logo-txt);
 }
 
 .logo-star {
   color: var(--accent1);
-  opacity: 0.45;
   margin-left: 0.08em;
 }
 
