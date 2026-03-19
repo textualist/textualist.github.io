@@ -133,10 +133,11 @@ a:hover {
 
 /* ── Layout ── */
 .site-header {
-  padding: 4rem 1.5rem 0;
+  padding: 5rem 1.5rem 0;
   max-width: 40rem;
   margin: 0 auto;
   width: 100%;
+  text-align: center;
 }
 
 .site-main {
@@ -155,6 +156,7 @@ a:hover {
   color: var(--muted);
   font-size: 0.72rem;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 /* ── Identity wordmark ── */
@@ -212,12 +214,28 @@ a:hover {
 
 /* ── Tagline ── */
 .tagline {
-  margin: 0.75rem 0 0;
+  margin: 0.75rem auto 0;
   font-size: 1rem;
   font-style: italic;
   line-height: 1.6;
   color: var(--muted);
   max-width: 32rem;
+}
+
+/* ── Divider ── */
+.header-rule {
+  border: none;
+  max-width: 6rem;
+  margin: 2.5rem auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent1),
+    var(--accent2),
+    transparent
+  );
+  opacity: 0.55;
 }
 
 /* ── Section ── */
@@ -226,10 +244,12 @@ a:hover {
 }
 
 .section h2 {
-  font-size: 0.88rem;
+  font-size: 0.72rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   margin-bottom: 1.25rem;
 }
 
@@ -241,11 +261,13 @@ a:hover {
   border-radius: 4px;
   padding: 1.1rem 1.25rem;
   margin-bottom: 0.75rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .project-card:hover {
   border-color: var(--accent1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
 
 .project-card-overlay {
@@ -302,7 +324,7 @@ a:hover {
 /* ── Responsive ── */
 @media screen and (max-width: 480px) {
   .site-header {
-    padding-top: 2.5rem;
+    padding-top: 3rem;
   }
 
   html {
