@@ -94,6 +94,7 @@ a:hover {
   font-family: Merriweather, Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   font-weight: 700;
+  font-style: italic;
   letter-spacing: -0.02em;
   line-height: 1;
 }
@@ -186,18 +187,21 @@ a:hover {
   color: var(--accent1);
   transform: translate(-1.5px, 1.5px);
   font-weight: 400;
+  font-style: italic;
 }
 
 .identity-wordmark .layer.blue {
   color: var(--accent2);
   transform: translate(1.5px, -1.5px);
   font-weight: 400;
+  font-style: italic;
 }
 
 .identity-wordmark .layer.black {
   position: relative;
   color: var(--ink);
   font-weight: 400;
+  font-style: italic;
 }
 
 .identity-wordmark__sr-only {
@@ -249,7 +253,6 @@ a:hover {
   position: relative;
   background: var(--paper);
   border: 1px solid var(--paper-border);
-  border-left: 3px solid rgba(192, 168, 144, 0.35);
   border-radius: 6px;
   padding: 1.25rem 1.4rem;
   margin-bottom: 0.75rem;
@@ -257,7 +260,7 @@ a:hover {
 }
 
 .project-card:hover {
-  border-left-color: var(--accent1);
+  border-color: var(--accent1);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
