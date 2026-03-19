@@ -249,18 +249,16 @@ a:hover {
   position: relative;
   background: var(--paper);
   border: 1px solid var(--paper-border);
-  border-left: 3px solid var(--accent2);
+  border-left: 3px solid rgba(192, 168, 144, 0.35);
   border-radius: 6px;
   padding: 1.25rem 1.4rem;
   margin-bottom: 0.75rem;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .project-card:hover {
-  border-color: var(--paper-border);
   border-left-color: var(--accent1);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transform: translateY(-1px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
 .project-card-overlay {
