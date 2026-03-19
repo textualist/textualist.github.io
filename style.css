@@ -42,7 +42,7 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Merriweather, Georgia, "Times New Roman", serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -64,9 +64,76 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ── Top bar ── */
+.topbar {
+  border-bottom: 1px solid var(--paper-border);
+}
+
+.topbar-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo-tri {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.logo-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.logo-red {
+  color: var(--accent1);
+  transform: translate(-0.7px, 0.7px);
+}
+
+.logo-blue {
+  color: var(--accent2);
+  transform: translate(0.7px, -0.7px);
+}
+
+.logo-black {
+  position: relative;
+  color: var(--ink);
+}
+
+.topbar-link {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.topbar-link:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
 /* ── Layout ── */
 .site-header {
-  padding: 2.5rem 1.5rem 0;
+  padding: 4rem 1.5rem 0;
   max-width: 40rem;
   margin: 0 auto;
   width: 100%;
@@ -81,12 +148,13 @@ a:hover {
 }
 
 .site-footer {
-  padding: 3rem 1.5rem 2rem;
+  padding: 4rem 1.5rem 2rem;
   max-width: 40rem;
   margin: 0 auto;
   width: 100%;
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ── Identity wordmark ── */
@@ -146,6 +214,7 @@ a:hover {
 .tagline {
   margin: 0.75rem 0 0;
   font-size: 1rem;
+  font-style: italic;
   line-height: 1.6;
   color: var(--muted);
   max-width: 32rem;
@@ -153,66 +222,89 @@ a:hover {
 
 /* ── Section ── */
 .section {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 
 .section h2 {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
-/* ── Project list ── */
-.project {
-  margin-bottom: 1.75rem;
+/* ── Project card ── */
+.project-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--paper-border);
+  border-radius: 4px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--accent1);
+}
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.project-card-overlay:hover {
+  text-decoration: none;
+}
+
+.project-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
 }
 
 .project-name {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--ink);
 }
 
-.project-name a {
-  color: inherit;
+.project-links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
-.project-name a:hover {
+.project-link {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.project-link:hover {
   color: var(--accent1);
+  text-decoration: none;
 }
 
-.project-desc {
-  margin-top: 0.2rem;
-  font-size: 0.92rem;
-  color: var(--text);
+.project-card .project-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
   line-height: 1.6;
-}
-
-/* ── About prose ── */
-.prose {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--text);
-}
-
-.prose p + p {
-  margin-top: 1rem;
-}
-
-/* ── Separator ── */
-hr {
-  border: none;
-  border-top: 1px solid var(--paper-border);
-  margin: 2.5rem 0;
 }
 
 /* ── Responsive ── */
 @media screen and (max-width: 480px) {
+  .site-header {
+    padding-top: 2.5rem;
+  }
+
   html {
     font-size: 16px;
   }
@@ -227,5 +319,9 @@ hr {
 
   .identity-wordmark .layer.blue {
     transform: translate(1px, -1px);
+  }
+
+  .project-card {
+    padding: 0.9rem 1rem;
   }
 }
