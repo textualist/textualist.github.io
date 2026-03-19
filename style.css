@@ -110,6 +110,11 @@ a:hover {
   transform: translate(-0.7px, 0.7px);
 }
 
+.logo-star {
+  opacity: 0.45;
+  margin-left: 0.08em;
+}
+
 .logo-blue {
   color: var(--accent2);
   transform: translate(0.7px, -0.7px);
