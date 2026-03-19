@@ -214,6 +214,7 @@ a:hover {
 .tagline {
   margin: 0.75rem 0 0;
   font-size: 1rem;
+  font-style: italic;
   line-height: 1.6;
   color: var(--muted);
   max-width: 32rem;
@@ -234,11 +235,19 @@ a:hover {
 
 /* ── Project card ── */
 .project-card {
+  display: block;
   background: var(--paper);
   border: 1px solid var(--paper-border);
   border-radius: 4px;
   padding: 1.1rem 1.25rem;
   margin-bottom: 0.75rem;
+  color: inherit;
+  transition: border-color 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--accent1);
+  text-decoration: none;
 }
 
 .project-card-head {
