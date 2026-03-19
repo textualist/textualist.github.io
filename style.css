@@ -42,7 +42,7 @@ html {
 }
 
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Merriweather, Georgia, "Times New Roman", serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -166,53 +166,65 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-/* ── Project list ── */
-.project {
-  margin-bottom: 1.75rem;
+/* ── Project table ── */
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.project-name {
+.project-table td {
+  padding: 0.6rem 0;
+  vertical-align: baseline;
+  border-bottom: 1px solid var(--paper-border);
+}
+
+.project-table tr:last-child td {
+  border-bottom: none;
+}
+
+.project-table .project-name {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
+  white-space: nowrap;
+  padding-right: 2rem;
   color: var(--ink);
+  width: 1%;
 }
 
-.project-name a {
+.project-table .project-name a {
   color: inherit;
 }
 
-.project-name a:hover {
+.project-table .project-name a:hover {
   color: var(--accent1);
 }
 
-.project-desc {
-  margin-top: 0.2rem;
-  font-size: 0.92rem;
-  color: var(--text);
+.project-table .project-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
   line-height: 1.6;
-}
-
-/* ── About prose ── */
-.prose {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--text);
-}
-
-.prose p + p {
-  margin-top: 1rem;
-}
-
-/* ── Separator ── */
-hr {
-  border: none;
-  border-top: 1px solid var(--paper-border);
-  margin: 2.5rem 0;
 }
 
 /* ── Responsive ── */
 @media screen and (max-width: 480px) {
+  .project-table,
+  .project-table tbody,
+  .project-table tr,
+  .project-table td {
+    display: block;
+  }
+
+  .project-table .project-name {
+    padding-right: 0;
+    padding-bottom: 0.15rem;
+    width: auto;
+  }
+
+  .project-table .project-desc {
+    padding-top: 0;
+  }
+
   html {
     font-size: 16px;
   }
