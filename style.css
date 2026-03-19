@@ -235,18 +235,27 @@ a:hover {
 
 /* ── Project card ── */
 .project-card {
-  display: block;
+  position: relative;
   background: var(--paper);
   border: 1px solid var(--paper-border);
   border-radius: 4px;
   padding: 1.1rem 1.25rem;
   margin-bottom: 0.75rem;
-  color: inherit;
   transition: border-color 0.2s;
 }
 
 .project-card:hover {
   border-color: var(--accent1);
+}
+
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.project-card-overlay:hover {
   text-decoration: none;
 }
 
@@ -265,6 +274,8 @@ a:hover {
 }
 
 .project-links {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.65rem;
