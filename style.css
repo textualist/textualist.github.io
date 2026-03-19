@@ -157,11 +157,9 @@ a:hover {
 }
 
 .section h2 {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 1rem;
 }
