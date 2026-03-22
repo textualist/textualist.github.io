@@ -17,12 +17,13 @@
     --mono: 'DM Mono', 'SF Mono', monospace;
   }
 
-  /* Dark mode: class-gated, add .dark to <html> to enable */
-  html.dark {
-    --ink: #ede4d4;
-    --paper: #1a1510;
-    --red: #d44030;
-    --muted: #b5a898;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #ede4d4;
+      --paper: #1a1510;
+      --red: #d44030;
+      --muted: #b5a898;
+    }
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

@@ -583,11 +583,13 @@
   -webkit-text-stroke: 1.5px var(--red);
 }
 
-/* Dark mode (class-gated) */
-html.dark .hero-title { -webkit-text-stroke-color: var(--muted); }
-html.dark .hero-star {
-  color: rgba(212,64,48,0.25);
-  -webkit-text-stroke-color: var(--red);
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .hero-title { -webkit-text-stroke-color: var(--muted); }
+  .hero-star {
+    color: rgba(212,64,48,0.25);
+    -webkit-text-stroke-color: var(--red);
+  }
 }
 
 /* HTML */
@@ -1282,7 +1284,7 @@ code {
   <div class="section" id="dark-mode">
     <div class="section-label"><span class="num">09</span> Dark mode</div>
     <h2>Light &amp; dark side by side</h2>
-    <p>Dark mode is class-gated: add <code>.dark</code> to <code>&lt;html&gt;</code> to enable. Every color is tokenized. No hardcoded values anywhere. The red warms slightly in dark mode for better contrast against the dark paper. Card hover shadows are suppressed in dark mode.</p>
+    <p>Dark mode activates via <code>prefers-color-scheme: dark</code>. Every color is tokenized. No hardcoded values anywhere. The red warms slightly in dark mode for better contrast against the dark paper. Card hover shadows are suppressed in dark mode.</p>
 
     <div class="mode-row">
       <div class="mode-panel force-light" style="background:var(--paper);border-color:var(--rule)">
@@ -1315,26 +1317,27 @@ code {
       <li>Code background uses inverted opacity: <code>rgba(237,228,212,0.06)</code></li>
     </ul>
 
-    <pre>/* Add .dark to &lt;html&gt; to enable */
-html.dark {
-  --ink: #ede4d4;
-  --paper: #1a1510;
-  --paper-rgb: 26,21,16;
-  --red: #d44030;
-  --red-dim: rgba(212,64,48,0.12);
-  --muted: #b5a898;
-  --rule: rgba(237,228,212,0.1);
-  --rule-strong: rgba(237,228,212,0.18);
-  --card-bg: rgba(34,28,20,0.6);
-  --card-bg-hover: rgba(44,36,26,0.85);
-  --grain-blend: soft-light;
-  --grain-opacity: 0.15;
-  --code-bg: rgba(237,228,212,0.06);
-}
+    <pre>@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ede4d4;
+    --paper: #1a1510;
+    --paper-rgb: 26,21,16;
+    --red: #d44030;
+    --red-dim: rgba(212,64,48,0.12);
+    --muted: #b5a898;
+    --rule: rgba(237,228,212,0.1);
+    --rule-strong: rgba(237,228,212,0.18);
+    --card-bg: rgba(34,28,20,0.6);
+    --card-bg-hover: rgba(44,36,26,0.85);
+    --grain-blend: soft-light;
+    --grain-opacity: 0.15;
+    --code-bg: rgba(237,228,212,0.06);
+  }
 
-html.dark .project-card:hover {
-  border-color: rgba(212,64,48,0.18);
-  box-shadow: none;
+  .project-card:hover {
+    border-color: rgba(212,64,48,0.18);
+    box-shadow: none;
+  }
 }</pre>
   </div>
 
