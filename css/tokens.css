@@ -215,6 +215,9 @@ footer {
 
 /* ─── Responsive ─── */
 @media (max-width: 680px) {
-  nav { padding: 1rem 1.5rem; }
+  nav {
+    padding: 1rem 1.5rem;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+  }
   footer { padding: 2rem 1.5rem; }
 }
