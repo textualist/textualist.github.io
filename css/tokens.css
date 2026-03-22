@@ -218,6 +218,15 @@ footer {
   nav {
     padding: 1rem 1.5rem;
     padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+    padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
   }
-  footer { padding: 2rem 1.5rem; }
+  .breadcrumb-sep,
+  .nav-project { display: none; }
+  footer {
+    padding: 2rem 1.5rem;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+    padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  }
 }
