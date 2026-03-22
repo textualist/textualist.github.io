@@ -399,6 +399,109 @@
     .toc { display: none; }
   }
 
+  /* ═══════════════════════════════════════
+     Mobile TOC (disclosure)
+     ═══════════════════════════════════════ */
+  .toc-mobile {
+    display: none;
+  }
+  @media (max-width: 1200px) {
+    .toc-mobile {
+      display: block;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .toc-mobile details {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-mobile summary {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.8rem 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    .toc-mobile summary::-webkit-details-marker { display: none; }
+    .toc-mobile summary::after {
+      content: '+';
+      font-family: var(--mono);
+      color: var(--red);
+      float: right;
+    }
+    .toc-mobile details[open] summary::after {
+      content: '−';
+    }
+    .toc-mobile .toc-mobile-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 0 1rem;
+    }
+    .toc-mobile .toc-mobile-list a {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: none;
+    }
+    .toc-mobile .toc-mobile-list a:hover,
+    .toc-mobile .toc-mobile-list a:active {
+      color: var(--red);
+    }
+    .toc-mobile .toc-mobile-list .toc-num {
+      color: var(--red);
+      display: inline-block;
+      width: 2.2em;
+      margin-right: 0.4em;
+    }
+  }
+  @media (max-width: 680px) {
+    .toc-mobile { padding: 0 1.5rem; }
+  }
+
+  /* ═══════════════════════════════════════
+     Back to top (mobile)
+     ═══════════════════════════════════════ */
+  .back-to-top {
+    display: none;
+  }
+  @media (max-width: 1200px) {
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      color: var(--red);
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 2.2rem;
+      text-align: center;
+      text-decoration: none;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .back-to-top.visible {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
   .end-mark {
     text-align: center;
     font-family: var(--mono);
@@ -499,6 +602,25 @@
   <h1 class="page-title">Style Guide</h1>
   <p class="hero-tagline">A design reference for building textualist sites</p>
 </section>
+
+<div class="toc-mobile">
+  <details>
+    <summary>Contents</summary>
+    <div class="toc-mobile-list">
+      <a href="#philosophy"><span class="toc-num">01</span> Philosophy</a>
+      <a href="#brand"><span class="toc-num">02</span> Brand</a>
+      <a href="#color"><span class="toc-num">03</span> Color</a>
+      <a href="#typography"><span class="toc-num">04</span> Typography</a>
+      <a href="#texture"><span class="toc-num">05</span> Texture</a>
+      <a href="#icons"><span class="toc-num">06</span> Icons</a>
+      <a href="#components"><span class="toc-num">07</span> Components</a>
+      <a href="#projects"><span class="toc-num">08</span> Projects</a>
+      <a href="#dark-mode"><span class="toc-num">09</span> Dark mode</a>
+      <a href="#layout"><span class="toc-num">10</span> Layout</a>
+      <a href="#animation"><span class="toc-num">11</span> Motion</a>
+    </div>
+  </details>
+</div>
 
 <div class="guide">
 
@@ -1431,23 +1553,35 @@ code {
   </footer>
 </div>
 
+<a href="#" class="back-to-top" aria-label="Back to top">*</a>
+
 <script>
-// Highlight active TOC item based on scroll position
+// Highlight active TOC item + back-to-top visibility
 (function() {
-  const sections = document.querySelectorAll('.section[id]');
-  const tocLinks = document.querySelectorAll('.toc a');
-  function updateActive() {
-    let current = '';
-    for (const section of sections) {
-      const top = section.getBoundingClientRect().top;
-      if (top < 120) current = section.id;
+  var sections = document.querySelectorAll('.section[id]');
+  var tocLinks = document.querySelectorAll('.toc a');
+  var btt = document.querySelector('.back-to-top');
+  var mobileToc = document.querySelector('.toc-mobile details');
+
+  function onScroll() {
+    var current = '';
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top < 120) current = sections[i].id;
     }
-    tocLinks.forEach(link => {
+    tocLinks.forEach(function(link) {
       link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
+    btt.classList.toggle('visible', window.scrollY > 400);
   }
-  window.addEventListener('scroll', updateActive, { passive: true });
-  updateActive();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Close mobile TOC after tapping a link
+  if (mobileToc) {
+    mobileToc.addEventListener('click', function(e) {
+      if (e.target.closest('a')) mobileToc.open = false;
+    });
+  }
 })();
 </script>
 </body>
