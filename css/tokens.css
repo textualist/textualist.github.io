@@ -103,6 +103,7 @@ nav {
   font-family: var(--mono);
   font-size: 1rem;
   font-weight: 400;
+  line-height: 1.375;
   color: var(--muted);
   text-decoration: none;
 }
