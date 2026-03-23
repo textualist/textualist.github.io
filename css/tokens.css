@@ -79,6 +79,17 @@ body::before {
   background-size: 200px 200px;
   mix-blend-mode: var(--grain-blend);
 }
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  z-index: 101;
+  pointer-events: none;
+}
 
 /* ─── Navigation ─── */
 nav {
@@ -95,16 +106,6 @@ nav {
   backdrop-filter: blur(14px);
   background: rgba(var(--paper-rgb), 0.92);
   z-index: 100;
-}
-nav::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: env(safe-area-inset-top, 0px);
-  background: var(--paper);
-  z-index: 1;
 }
 
 .nav-left { display: flex; align-items: baseline; gap: 0.25rem; }
