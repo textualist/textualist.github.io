@@ -104,7 +104,7 @@ nav::before {
   right: 0;
   height: env(safe-area-inset-top, 0px);
   background: var(--paper);
-  z-index: -1;
+  z-index: 1;
 }
 
 .nav-left { display: flex; align-items: baseline; gap: 0.25rem; }
