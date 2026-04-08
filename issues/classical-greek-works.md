@@ -112,7 +112,7 @@ These form the core Jowett corpus — the most widely used public-domain English
 
 | # | Title | Ebook | Translator | Link |
 |---|-------|-------|------------|------|
-| 1 | The Nicomachean Ethics | 8438 | J. A. Smith / W. D. Ross (Oxford) | https://www.gutenberg.org/ebooks/8438 |
+| 1 | The Nicomachean Ethics | 8438 | D. P. Chase | https://www.gutenberg.org/ebooks/8438 |
 | 2 | The Poetics of Aristotle | 1974 | S. H. Butcher (1850-1910) | https://www.gutenberg.org/ebooks/1974 |
 | 3 | Aristotle on the Art of Poetry | 6763 | Ingram Bywater (1840-1914), with preface by Gilbert Murray | https://www.gutenberg.org/ebooks/6763 |
 | 4 | Poetics (audiobook only) | 20685 | (Audio narration by Robert Foster) | https://www.gutenberg.org/ebooks/20685 |
